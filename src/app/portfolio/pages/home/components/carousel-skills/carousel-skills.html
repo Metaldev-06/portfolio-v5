@@ -1,0 +1,18 @@
+<div class="carousel__wrapper">
+  <div class="carousel__track">
+    @for (skill of homeQuery.data()?.data?.skills; track skill.documentId) {
+    <div class="skill__card">
+      <img [src]="skill.image.url" [alt]="skill.title" width="20" />
+      <span>{{ skill.title }}</span>
+    </div>
+    }
+    <!-- Duplicamos los ítems para simular el infinito -->
+    @for (skill of homeQuery.data()?.data?.skills; track skill.documentId +
+    '_clone') {
+    <div class="skill__card">
+      <img [src]="skill.image.url" [alt]="skill.title" width="20" />
+      <span>{{ skill.title }}</span>
+    </div>
+    }
+  </div>
+</div>

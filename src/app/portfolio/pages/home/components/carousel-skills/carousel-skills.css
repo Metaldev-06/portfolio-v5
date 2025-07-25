@@ -1,0 +1,33 @@
+.carousel__wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  .carousel__track {
+    display: flex;
+    animation: scroll-carousel 40s linear infinite;
+    width: max-content;
+  }
+
+  .skill__card {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    backdrop-filter: blur(25px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin-right: 0.5rem;
+    white-space: nowrap;
+  }
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

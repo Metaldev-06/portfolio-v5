@@ -1,0 +1,22 @@
+<section class="aboutMe__container">
+  <div class="bento__grid">
+    <div class="card__grid" style="grid-column: span 2 / span 2">
+      <h2>Acerca de mí</h2>
+      <markdown [data]="homeQuery.data()?.data?.about_me"></markdown>
+    </div>
+
+    @for (service of homeQuery.data()?.data?.services; track service.documentId)
+    {
+    <div class="card__grid">
+      <img
+        class="invert"
+        [src]="service.image.url"
+        [alt]="service.title"
+        width="50"
+      />
+      <h3>{{service.title}}</h3>
+      <p>{{service.description}}</p>
+    </div>
+    }
+  </div>
+</section>
