@@ -5,7 +5,14 @@
       #interactiveCard
       style="grid-column: span 2 / span 2"
     >
-      <h2>Acerca de mí</h2>
+      <h2>
+        <img
+          [src]="homeQuery.data()?.data?.image?.url"
+          width="50"
+          alt="Foto de Perfil"
+        />
+        Acerca de mí
+      </h2>
       <markdown [data]="homeQuery.data()?.data?.about_me"></markdown>
     </div>
 

@@ -47,6 +47,20 @@
       flex-direction: column;
       gap: 1rem;
       grid-auto-flow: dense;
+      background-image: url(/image/white-noise.png);
+      background-repeat: repeat;
+      background-size: 2000px;
+
+      h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+          border-radius: 50%;
+          overflow: hidden;
+        }
+      }
 
       h2,
       h3 {
