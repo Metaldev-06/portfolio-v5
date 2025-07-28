@@ -1,7 +1,9 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   inject,
+  OnDestroy,
   QueryList,
   Renderer2,
   ViewChildren,
@@ -17,7 +19,7 @@ import { HomeData } from '../../services/home-data';
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
 })
-export class AboutMe {
+export class AboutMe implements AfterViewInit, OnDestroy {
   @ViewChildren('interactiveCard', { read: ElementRef })
   interactiveCards!: QueryList<ElementRef>;
 
@@ -42,28 +44,59 @@ export class AboutMe {
     this.listeners.forEach((unlisten) => unlisten());
     this.listeners = [];
 
-    this.interactiveCards.forEach((cardRef) => {
-      const card = cardRef.nativeElement;
+    const cards = this.interactiveCards.map((c) => c.nativeElement);
+    const container = cards[0]?.parentElement;
 
-      const moveListener = this._renderer.listen(
-        card,
-        'mousemove',
-        (e: MouseEvent) => {
+    if (!container) return;
+
+    const moveListener = this._renderer.listen(
+      container,
+      'mousemove',
+      (e: MouseEvent) => {
+        cards.forEach((card) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
 
-          card.style.setProperty('--x', `${x}px`);
-          card.style.setProperty('--y', `${y}px`);
-          card.style.setProperty('--opacity', '1');
-        },
-      );
+          const isInside =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
 
-      const leaveListener = this._renderer.listen(card, 'mouseleave', () => {
+          // Proximidad más generosa
+          const proximityPadding = 100; // <== Aumentamos la zona de activación
+          const proximity =
+            e.clientX >= rect.left - proximityPadding &&
+            e.clientX <= rect.right + proximityPadding &&
+            e.clientY >= rect.top - proximityPadding &&
+            e.clientY <= rect.bottom + proximityPadding;
+
+          if (isInside || proximity) {
+            const localX = Math.max(0, Math.min(x, rect.width));
+            const localY = Math.max(0, Math.min(y, rect.height));
+
+            card.style.setProperty('--x', `${localX}px`);
+            card.style.setProperty('--y', `${localY}px`);
+            card.style.setProperty('--opacity', isInside ? '1' : '0.8'); // más tenue en proximidad
+          } else {
+            card.style.setProperty('--opacity', '0');
+          }
+        });
+      },
+    );
+
+    const leaveListener = this._renderer.listen(container, 'mouseleave', () => {
+      cards.forEach((card) => {
         card.style.setProperty('--opacity', '0');
       });
-
-      this.listeners.push(moveListener, leaveListener);
     });
+
+    this.listeners.push(moveListener, leaveListener);
+  }
+
+  ngOnDestroy() {
+    this.listeners.forEach((unlisten) => unlisten());
+    this.listeners = [];
   }
 }
