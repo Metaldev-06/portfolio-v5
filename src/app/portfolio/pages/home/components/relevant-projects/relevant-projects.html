@@ -1,1 +1,13 @@
-<p>relevant-projects works!</p>
+<section class="projects__container">
+  <h2>Proyectos Relevantes</h2>
+
+  <div class="projects__grid">
+    @for (project of homeQuery.data()?.data?.projects; track project.documentId)
+    {
+    <app-atropos [project]="project">
+      <app-project-card [project]="project"></app-project-card>
+    </app-atropos>
+
+    }
+  </div>
+</section>

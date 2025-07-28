@@ -1,0 +1,15 @@
+<!-- main Atropos container (required), add your custom class here -->
+<div class="atropos my-atropos" [ngClass]="project().documentId">
+  <!-- scale container (required) -->
+  <div class="atropos-scale">
+    <!-- rotate container (required) -->
+    <div class="atropos-rotate">
+      <!-- inner container (required) -->
+      <div class="atropos-inner">
+        <!-- put your custom content here -->
+        <!-- <p>{{ project().title }}</p> -->
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

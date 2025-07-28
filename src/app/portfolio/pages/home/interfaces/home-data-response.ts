@@ -33,6 +33,7 @@ export interface Project {
   description: string;
   github_link: string;
   project_link: string;
+  stack: string[];
   images: ImageElement[];
 }
 

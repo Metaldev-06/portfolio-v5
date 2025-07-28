@@ -23,7 +23,7 @@ export class HomeData {
 
   private getHomeData(): Observable<HomeDataResponse> {
     return this._http.get<HomeDataResponse>(
-      `${this._baseUrl}/home?populate[image][fields][0]=url&populate[image][fields][1]=name&populate[image][fields][2]=width&populate[image][fields][3]=height&populate[services][fields][0]=title&populate[services][fields][1]=description&populate[services][populate][image][fields][0]=url&populate[services][populate][image][fields][1]=name&populate[projects][fields][0]=title&populate[projects][fields][1]=description&populate[projects][fields][2]=github_link&populate[projects][fields][3]=project_link&populate[projects][populate][images][fields][0]=url&populate[projects][populate][images][fields][1]=name&populate[skills][fields][0]=title&populate[skills][populate][image][fields][0]=url&locale=es-AR`,
+      `${this._baseUrl}/home?populate[image][fields][0]=url&populate[image][fields][1]=name&populate[image][fields][2]=width&populate[image][fields][3]=height&populate[services][fields][0]=title&populate[services][fields][1]=description&populate[services][populate][image][fields][0]=url&populate[services][populate][image][fields][1]=name&populate[projects][fields][0]=title&populate[projects][fields][1]=description&populate[projects][fields][2]=github_link&populate[projects][fields][3]=project_link&populate[projects][fields][4]=stack&populate[projects][populate][images][fields][0]=url&populate[projects][populate][images][fields][1]=name&populate[skills][fields][0]=title&populate[skills][populate][image][fields][0]=url&locale=es-AR`,
     );
   }
 }
