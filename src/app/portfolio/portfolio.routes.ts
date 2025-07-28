@@ -23,6 +23,10 @@ export const portfolioRoutes: Routes = [
         path: 'educations',
         loadComponent: () => import('./pages/educations/educations'),
       },
+      {
+        path: 'contact',
+        loadComponent: () => import('./pages/contact/contact'),
+      },
     ],
   },
 

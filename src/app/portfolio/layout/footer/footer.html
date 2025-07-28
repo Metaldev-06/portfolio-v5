@@ -1,0 +1,41 @@
+<footer class="footer__container">
+  <div class="footer__content">
+    <div class="footer__socials">
+      <a
+        href="https://github.com/Metaldev-06/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="GitHub"
+      >
+        <lucide-angular [img]="Github" class="my-icon"></lucide-angular>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/fernandodiaz62/"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="LinkedIn"
+      >
+        <lucide-angular [img]="Linkedin" class="my-icon"></lucide-angular>
+      </a>
+      <a
+        href="https://x.com/MetalDev_06"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Twitter"
+      >
+        <lucide-angular [img]="Twitter" class="my-icon"></lucide-angular>
+      </a>
+    </div>
+
+    <div class="footer__text-container">
+      <p class="footer__text">
+        &copy; Copyright <b>Metaldev06</b>, {{ currentYear }}. All rights
+        Reserved.
+      </p>
+    </div>
+
+    <div class="footer__contact">
+      <a [routerLink]="['/contact']">Contacto</a>
+    </div>
+  </div>
+</footer>
