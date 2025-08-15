@@ -34,6 +34,16 @@
       font-weight: bold;
     }
 
+    p {
+      height: 72px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-clamp: 3;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
     .project__tags {
       min-height: 70px;
       display: flex;

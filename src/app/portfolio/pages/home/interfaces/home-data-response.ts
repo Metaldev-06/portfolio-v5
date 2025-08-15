@@ -15,6 +15,7 @@ export interface Data {
   services: Service[];
   projects: Project[];
   skills: Skill[];
+  resume: string;
 }
 
 export interface DataImage {

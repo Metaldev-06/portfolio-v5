@@ -17,10 +17,15 @@
       Ver Proyectos
     </button>
 
-    <button class="hero__button--secondary">
+    <a
+      class="hero__button--secondary"
+      [href]="homeQuery.data()?.data?.resume"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <lucide-angular [img]="Download" class="my-icon"></lucide-angular>
       Descargar CV
-    </button>
+    </a>
   </div>
 
   <div class="hero__skills">

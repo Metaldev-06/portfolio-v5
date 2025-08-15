@@ -41,7 +41,8 @@
     display: flex;
     gap: 1rem;
 
-    button {
+    button,
+    a {
       padding: 0.5rem 1rem;
       border: none;
       border-radius: 8px;
