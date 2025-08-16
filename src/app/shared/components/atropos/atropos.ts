@@ -5,6 +5,7 @@ import Atropos from 'atropos';
 import 'atropos/css';
 
 import { Project } from '@portfolio/pages/home/interfaces/home-data-response';
+import { ProjectData } from '@portfolio/pages/projects/interfaces/projects-data-response';
 
 @Component({
   selector: 'app-atropos',
@@ -13,7 +14,7 @@ import { Project } from '@portfolio/pages/home/interfaces/home-data-response';
   styleUrl: './atropos.css',
 })
 export class AtroposComponent implements AfterViewInit, OnDestroy {
-  public project = input<Project>({} as Project);
+  public project = input.required<Project>();
   private myAtropos: ReturnType<typeof Atropos> | null = null;
 
   ngAfterViewInit() {
