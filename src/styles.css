@@ -91,6 +91,12 @@ body {
   --hero-text-color: #434343;
 }
 
+.title__section {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 /* FONTS */
 
 /* @font-face {

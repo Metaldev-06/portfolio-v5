@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SkillsData } from './services/skills-data';
+import { SkillData, Type } from './interfaces/skills-data-response';
 
 @Component({
   selector: 'app-skills',
@@ -6,4 +8,30 @@ import { Component } from '@angular/core';
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })
-export default class Skills {}
+export default class Skills {
+  private readonly _skillsData = inject(SkillsData);
+
+  get skillsData() {
+    return this._skillsData.skillsData;
+  }
+
+  groupByType(data: SkillData[] | null | undefined) {
+    if (!data) return [];
+
+    // devuelve un array [{ type, items }]
+    const grouped = Object.values(
+      data.reduce(
+        (acc, skill) => {
+          if (!acc[skill.type]) {
+            acc[skill.type] = { type: skill.type, items: [] as SkillData[] };
+          }
+          acc[skill.type].items.push(skill);
+          return acc;
+        },
+        {} as Record<Type, { type: Type; items: SkillData[] }>,
+      ),
+    );
+
+    return grouped;
+  }
+}

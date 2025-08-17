@@ -1,1 +1,18 @@
-<p>skills works!</p>
+<section class="skills__container">
+  <h1 class="title__section">Habilidades</h1>
+
+  @for (group of groupByType(skillsData.data()?.data); track group.type) {
+  <h2 class="title__section">{{ group.type }}</h2>
+
+  <article class="skills__content">
+    @for (skill of group.items; track skill.documentId) {
+    <div class="skills__card">
+      <picture class="skills__picture">
+        <img [src]="skill.image.url" [alt]="skill.title" />
+      </picture>
+      <h3 class="skills__description">{{ skill.title }}</h3>
+    </div>
+    }
+  </article>
+  }
+</section>
