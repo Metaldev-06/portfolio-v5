@@ -1,5 +1,7 @@
 <section class="projects__container">
-  <h2>Proyectos Relevantes</h2>
+  <h2 class="title__section">
+    {{ 'home.relevant-projects.title' | transloco }}
+  </h2>
 
   <div class="projects__grid">
     @for (project of homeQuery.data()?.data?.projects; track project.documentId)

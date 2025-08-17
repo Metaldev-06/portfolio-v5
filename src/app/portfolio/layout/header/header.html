@@ -13,7 +13,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             (mouseenter)="prefetchHome()"
           >
-            INICIO
+            {{"header.home"| transloco}}
           </a>
         </li>
         <li>
@@ -22,7 +22,7 @@
             routerLinkActive="active"
             (mouseenter)="prefetchProjects()"
           >
-            PROYECTOS
+            {{"header.projects"| transloco}}
           </a>
         </li>
         <li>
@@ -30,8 +30,9 @@
             [routerLink]="['/skills']"
             routerLinkActive="active"
             (mouseenter)="prefetchSkills()"
-            >HABILIDADES</a
           >
+            {{"header.skills"| transloco}}
+          </a>
         </li>
         <li>
           <a
@@ -39,12 +40,22 @@
             routerLinkActive="active"
             (mouseenter)="prefetchEducations()"
           >
-            EDUCACIÓN
+            {{"header.education"| transloco}}
           </a>
         </li>
       </ul>
     </nav>
 
-    <div class="header__cta"></div>
+    <div class="header__cta">
+      <button (click)="toggleLocale()">
+        <img
+          [src]="localesAssets[locale()].src"
+          [alt]="localesAssets[locale()].alt"
+          width="30"
+          height="30"
+          [title]="localesAssets[locale()].title"
+        />
+      </button>
+    </div>
   </div>
 </header>

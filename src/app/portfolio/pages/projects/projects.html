@@ -1,5 +1,5 @@
 <section class="projects__container">
-  <h2 class="title__section">Proyectos</h2>
+  <h2 class="title__section">{{ 'projects.title' | transloco }}</h2>
 
   <div class="projects__grid">
     @for (project of projectsQuery.data()?.data; track project.documentId) {

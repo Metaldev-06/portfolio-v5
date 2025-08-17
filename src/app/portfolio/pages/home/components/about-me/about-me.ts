@@ -12,10 +12,11 @@ import {
 import { MarkdownModule } from 'ngx-markdown';
 
 import { HomeData } from '../../services/home-data';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-about-me',
-  imports: [MarkdownModule],
+  imports: [MarkdownModule, TranslocoPipe],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
 })

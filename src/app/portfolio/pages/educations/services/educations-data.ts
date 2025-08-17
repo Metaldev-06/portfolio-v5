@@ -1,23 +1,31 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { effect, inject, Injectable, signal } from '@angular/core';
-import { injectQuery } from '@tanstack/angular-query-experimental';
-import { environment } from 'environments/environment';
+
 import { lastValueFrom, Observable } from 'rxjs';
+
+import { injectQuery } from '@tanstack/angular-query-experimental';
+
 import { EducationsDataResponse } from '../interfaces/educations-data-response';
+import { environment } from 'environments/environment';
+import { LocaleAplication } from '@core/services/locale';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EducationsData {
   private readonly _http = inject(HttpClient);
+  private readonly _locale = inject(LocaleAplication);
+
   private readonly _baseUrl = environment.apiUrl;
-  private _locale = signal<string>('es-AR');
+
   public fetch = signal<boolean>(false);
 
   public educationsData = injectQuery(() => ({
-    queryKey: ['educationsData', this._locale()],
-    queryFn: () => lastValueFrom(this.getEducationsData()),
+    queryKey: ['educationsData', this._locale.locale()],
+    queryFn: () => lastValueFrom(this.getEducationsData(this._locale.locale())),
     enabled: this.fetch(),
+    staleTime: Infinity,
+    cacheTime: Infinity,
   }));
 
   public prefetchEducations(value: boolean) {
@@ -30,9 +38,11 @@ export class EducationsData {
     }
   });
 
-  private getEducationsData(): Observable<EducationsDataResponse> {
+  private getEducationsData(
+    locale: string,
+  ): Observable<EducationsDataResponse> {
     let params = new HttpParams()
-      .set('locale', this._locale())
+      .set('locale', locale)
       .set('pagination[limit]', 'withCount');
 
     return this._http.get<EducationsDataResponse>(

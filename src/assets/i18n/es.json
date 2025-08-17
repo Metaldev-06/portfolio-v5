@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "inicio",
+    "projects": "proyectos",
+    "skills": "habilidades",
+    "education": "educación"
+  },
+  "home": {
+    "hero": {
+      "title": "Desarrollador Web",
+      "subtitle": "Full Stack",
+      "description": "Creo experiencias digitales excepcionales combinando diseño moderno con código limpio y eficiente",
+      "cta": "Ver proyectos",
+      "cv": "Descargar CV"
+    },
+    "about-me": {
+      "title": "Acerca de Mí"
+    },
+    "relevant-projects": {
+      "title": "Proyectos Relevantes"
+    }
+  },
+  "projects": {
+    "title": "Proyectos"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "group": {
+      "frontend": "Desarrollo Frontend",
+      "backend": "Desarrollo Backend",
+      "languages": "Lenguajes de Programación",
+      "database": "Bases de Datos",
+      "library": "Librerías"
+    }
+  },
+  "education": {
+    "title": "Educación"
+  },
+  "footer": {
+    "contact": "Contacto"
+  }
+}

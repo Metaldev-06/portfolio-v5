@@ -7,14 +7,16 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 
 import { environment } from 'environments/environment';
 import { SkillsDataResponse } from '../interfaces/skills-data-response';
+import { LocaleAplication } from '@core/services/locale';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SkillsData {
   private readonly _http = inject(HttpClient);
+
   private readonly _baseUrl = environment.apiUrl;
-  private _locale = signal<string>('es-AR');
+
   public fetch = signal<boolean>(false);
 
   public skillsData = injectQuery(() => ({

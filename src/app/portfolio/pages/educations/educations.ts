@@ -1,9 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EducationsData } from './services/educations-data';
 
+import { TranslocoPipe } from '@jsverse/transloco';
+
 @Component({
   selector: 'app-educations',
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './educations.html',
   styleUrl: './educations.css',
 })

@@ -1,12 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProjectsData } from './services/projects-data';
 
+import { TranslocoPipe } from '@jsverse/transloco';
+
 import { AtroposComponent } from '@shared/components/atropos/atropos';
 import { ProjectCard } from '@shared/components/project-card/project-card';
 
 @Component({
   selector: 'app-projects',
-  imports: [AtroposComponent, ProjectCard],
+  imports: [AtroposComponent, ProjectCard, TranslocoPipe],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })

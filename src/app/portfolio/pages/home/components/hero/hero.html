@@ -1,32 +1,31 @@
 <section class="hero__container">
-  <div class="hero__text">
-    <div class="hero__text--title">
-      <h1>Desarrollador Web</h1>
-      <h2>Full Stack</h2>
+  <article class="hero__text--container">
+    <div class="hero__text">
+      <div class="hero__text--title">
+        <h1>{{ "home.hero.title" | transloco }}</h1>
+        <h2>{{ "home.hero.subtitle" | transloco }}</h2>
+      </div>
+
+      <h3>{{ "home.hero.description" | transloco }}</h3>
     </div>
 
-    <h3>
-      Creo experiencias digitales excepcionales combinando diseño moderno <br />
-      con código limpio y eficiente.
-    </h3>
-  </div>
+    <div class="hero__buttons">
+      <button class="hero__button--primary" [routerLink]="['/projects']">
+        <lucide-angular [img]="Eye" class="my-icon"></lucide-angular>
+        {{ "home.hero.cta" | transloco }}
+      </button>
 
-  <div class="hero__buttons">
-    <button class="hero__button--primary">
-      <lucide-angular [img]="Eye" class="my-icon"></lucide-angular>
-      Ver Proyectos
-    </button>
-
-    <a
-      class="hero__button--secondary"
-      [href]="homeQuery.data()?.data?.resume"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <lucide-angular [img]="Download" class="my-icon"></lucide-angular>
-      Descargar CV
-    </a>
-  </div>
+      <a
+        class="hero__button--secondary"
+        [href]="homeQuery.data()?.data?.resume"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <lucide-angular [img]="Download" class="my-icon"></lucide-angular>
+        {{ "home.hero.cv" | transloco }}
+      </a>
+    </div>
+  </article>
 
   <div class="hero__skills">
     <app-carousel-skills />

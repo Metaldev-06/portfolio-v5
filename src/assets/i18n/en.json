@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "home",
+    "projects": "projects",
+    "skills": "skills",
+    "education": "education"
+  },
+  "home": {
+    "hero": {
+      "title": "Web Developer",
+      "subtitle": "Full Stack",
+      "description": "I create exceptional digital experiences by combining modern design with clean and efficient code.",
+      "cta": "View Projects",
+      "cv": "Download CV"
+    },
+    "about-me": {
+      "title": "About Me"
+    },
+    "relevant-projects": {
+      "title": "Relevant Projects"
+    }
+  },
+  "projects": {
+    "title": "Projects"
+  },
+  "skills": {
+    "title": "Skills",
+    "group": {
+      "frontend": "Frontend Development",
+      "backend": "Backend Development",
+      "languages": "Programming Languages",
+      "database": "Databases",
+      "library": "Libraries"
+    }
+  },
+  "education": {
+    "title": "Education"
+  },
+  "footer": {
+    "contact": "Contact"
+  }
+}

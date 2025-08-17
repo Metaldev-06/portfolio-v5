@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { TranslocoPipe } from '@jsverse/transloco';
+
 import {
   Github,
   LinkedinIcon,
@@ -10,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-footer',
-  imports: [LucideAngularModule, RouterLink],
+  imports: [LucideAngularModule, RouterLink, TranslocoPipe],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

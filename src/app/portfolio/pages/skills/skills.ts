@@ -2,9 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { SkillsData } from './services/skills-data';
 import { SkillData, Type } from './interfaces/skills-data-response';
 
+import { TranslocoPipe } from '@jsverse/transloco';
+
 @Component({
   selector: 'app-skills',
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })

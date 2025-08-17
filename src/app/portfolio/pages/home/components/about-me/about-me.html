@@ -11,7 +11,8 @@
           width="50"
           alt="Foto de Perfil"
         />
-        Acerca de mí
+
+        {{ 'home.about-me.title' | transloco }}
       </h2>
       <markdown [data]="homeQuery.data()?.data?.about_me"></markdown>
     </div>

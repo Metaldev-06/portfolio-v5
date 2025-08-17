@@ -2,6 +2,7 @@ import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
+  isDevMode,
 } from '@angular/core';
 import {
   provideRouter,
@@ -23,6 +24,8 @@ import Aura from '@primeuix/themes/aura';
 import { provideMarkdown } from 'ngx-markdown';
 
 import { routes } from './app.routes';
+import { TranslocoHttpLoader } from './transloco-loader';
+import { provideTransloco } from '@jsverse/transloco';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,6 +40,16 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura,
       },
+    }),
+    provideHttpClient(),
+    provideTransloco({
+      config: {
+        availableLangs: ['en', 'es'],
+        defaultLang: 'es',
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader,
     }),
   ],
 };

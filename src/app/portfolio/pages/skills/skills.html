@@ -1,8 +1,10 @@
 <section class="skills__container">
-  <h1 class="title__section">Habilidades</h1>
+  <h1 class="title__section">{{ 'skills.title' | transloco }}</h1>
 
   @for (group of groupByType(skillsData.data()?.data); track group.type) {
-  <h2 class="title__section">{{ group.type }}</h2>
+  <h2 class="title__section group__skills">
+    {{ 'skills.group.' + group.type | transloco }}
+  </h2>
 
   <article class="skills__content">
     @for (skill of group.items; track skill.documentId) {
