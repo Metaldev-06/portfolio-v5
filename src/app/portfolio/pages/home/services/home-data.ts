@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { effect, inject, Injectable, signal } from '@angular/core';
 
 import { lastValueFrom, Observable } from 'rxjs';
 
@@ -15,11 +15,23 @@ export class HomeData {
   private readonly _http = inject(HttpClient);
   private readonly _baseUrl = environment.apiUrl;
   private _locale = signal<string>('es-AR');
+  public fetch = signal<boolean>(false);
 
   public homeData = injectQuery(() => ({
     queryKey: ['homeData', this._locale()],
     queryFn: () => lastValueFrom(this.getHomeData()),
+    enabled: this.fetch(),
   }));
+
+  public prefetchHome(value: boolean) {
+    this.fetch.set(value);
+  }
+
+  private _refetchEffect = effect(() => {
+    if (this.fetch()) {
+      this.homeData.refetch();
+    }
+  });
 
   private getHomeData(): Observable<HomeDataResponse> {
     return this._http.get<HomeDataResponse>(

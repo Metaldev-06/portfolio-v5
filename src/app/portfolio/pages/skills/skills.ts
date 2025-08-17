@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SkillsData } from './services/skills-data';
 import { SkillData, Type } from './interfaces/skills-data-response';
 
@@ -8,14 +8,18 @@ import { SkillData, Type } from './interfaces/skills-data-response';
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })
-export default class Skills {
+export default class Skills implements OnInit {
   private readonly _skillsData = inject(SkillsData);
 
   get skillsData() {
     return this._skillsData.skillsData;
   }
 
-  groupByType(data: SkillData[] | null | undefined) {
+  ngOnInit(): void {
+    this._skillsData.prefetchSkills(true);
+  }
+
+  public groupByType(data: SkillData[] | null | undefined) {
     if (!data) return [];
 
     // devuelve un array [{ type, items }]

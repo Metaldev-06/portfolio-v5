@@ -11,23 +11,36 @@
             [routerLink]="['/']"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >INICIO</a
+            (mouseenter)="prefetchHome()"
           >
+            INICIO
+          </a>
         </li>
         <li>
-          <a [routerLink]="['/projects']" routerLinkActive="active"
-            >PROYECTOS</a
+          <a
+            [routerLink]="['/projects']"
+            routerLinkActive="active"
+            (mouseenter)="prefetchProjects()"
           >
+            PROYECTOS
+          </a>
         </li>
         <li>
-          <a [routerLink]="['/skills']" routerLinkActive="active"
+          <a
+            [routerLink]="['/skills']"
+            routerLinkActive="active"
+            (mouseenter)="prefetchSkills()"
             >HABILIDADES</a
           >
         </li>
         <li>
-          <a [routerLink]="['/educations']" routerLinkActive="active"
-            >EDUCACIÓN</a
+          <a
+            [routerLink]="['/educations']"
+            routerLinkActive="active"
+            (mouseenter)="prefetchEducations()"
           >
+            EDUCACIÓN
+          </a>
         </li>
       </ul>
     </nav>
