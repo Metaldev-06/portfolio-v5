@@ -1,5 +1,6 @@
 .aboutMe__container {
   width: 95%;
+  max-width: 1200px;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -8,6 +9,7 @@
   margin: 0 auto;
 
   .bento__grid {
+    width: 100%;
     display: grid;
     gap: 1rem;
     grid-auto-flow: dense;
