@@ -1,1 +1,14 @@
-<p>educations works!</p>
+<section class="educations__container">
+  <h1 class="title__section">Educations</h1>
+
+  <article class="educations__content">
+    @for (education of educationsData.data()?.data; track education.documentId)
+    {
+    <div class="education__card">
+      <img [src]="education.image.url" [alt]="education.title" />
+      <h2>{{ education.title }}</h2>
+      <span>{{ education.institution }}</span>
+    </div>
+    }
+  </article>
+</section>
