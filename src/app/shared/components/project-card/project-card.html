@@ -16,12 +16,12 @@
     <div class="project__link">
       <a [href]="project().github_link" target="_blank">
         <lucide-angular [img]="Github" class="my-icon"></lucide-angular>
-        Código
+        {{ 'projects.card-project.source' | transloco }}
       </a>
 
       <a [href]="project().project_link" target="_blank">
         <lucide-angular [img]="Eye" class="my-icon"></lucide-angular>
-        Demo
+        {{ 'projects.card-project.view' | transloco }}
       </a>
     </div>
   </div>

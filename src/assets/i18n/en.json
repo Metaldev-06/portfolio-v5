@@ -21,7 +21,11 @@
     }
   },
   "projects": {
-    "title": "Projects"
+    "title": "Projects",
+    "card-project": {
+      "source": "Source",
+      "view": "Demo"
+    }
   },
   "skills": {
     "title": "Skills",
@@ -35,6 +39,12 @@
   },
   "education": {
     "title": "Education"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Thank you for visiting my portfolio. If you have any questions, comments, or just want to say hello, feel free to reach out to me. I am always happy to hear your ideas and collaborate on interesting projects. You can contact me through the contact form or via email. I look forward to hearing from you soon!",
+    "subtitle": "Email",
+    "email": "metaldev62@gmail.com"
   },
   "footer": {
     "contact": "Contact"

@@ -2,11 +2,13 @@ import { Component, input } from '@angular/core';
 
 import { Eye, Github, LucideAngularModule } from 'lucide-angular';
 
+import { TranslocoPipe } from '@jsverse/transloco';
+
 import { Project } from '@portfolio/pages/home/interfaces/home-data-response';
 
 @Component({
   selector: 'app-project-card',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, TranslocoPipe],
   templateUrl: './project-card.html',
   styleUrl: './project-card.css',
 })
