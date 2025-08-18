@@ -4,12 +4,16 @@
   </h2>
 
   <div class="projects__grid">
-    @for (project of homeQuery.data()?.data?.projects; track project.documentId)
-    {
+    @if (!homeQuery.isLoading()) { @for (project of
+    homeQuery.data()?.data?.projects; track project.documentId) {
     <app-atropos [project]="project">
       <app-project-card [project]="project"></app-project-card>
     </app-atropos>
 
-    }
+    } } @else { @for (item of [1, 1, 1]; track $index) {
+    <div class="skeleton">
+      <div></div>
+    </div>
+    } }
   </div>
 </section>

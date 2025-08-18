@@ -1,7 +1,8 @@
 <section class="skills__container">
   <h1 class="title__section">{{ 'skills.title' | transloco }}</h1>
 
-  @for (group of groupByType(skillsData.data()?.data); track group.type) {
+  @if (!skillsData.isLoading()) { @for (group of
+  groupByType(skillsData.data()?.data); track group.type) {
   <h2 class="title__section group__skills">
     {{ 'skills.group.' + group.type | transloco }}
   </h2>
@@ -16,5 +17,19 @@
     </div>
     }
   </article>
-  }
+  } } @else { @for (item of [1, 2]; track $index) {
+
+  <h2 class="title__section group__skills">
+    <div class="skeleton-line skeleton-title-large"></div>
+  </h2>
+
+  <article class="skills__content">
+    @for (item of [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; track $index) {
+    <div class="skills__card skeleton__skill">
+      <div class="skeleton-icon"></div>
+      <div class="skeleton-line"></div>
+    </div>
+    }
+  </article>
+  } }
 </section>

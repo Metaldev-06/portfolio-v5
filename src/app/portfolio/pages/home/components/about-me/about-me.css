@@ -76,5 +76,34 @@
         grid-column: span 2;
       }
     }
+
+    .skeleton__card {
+      padding: 1rem;
+      border-radius: 12px;
+      background-color: rgba(17, 25, 40, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      background-image: url(/image/white-noise.png);
+      background-repeat: repeat;
+      background-size: 2000px;
+
+      /* Gradiente animado para el efecto de carga */
+      background-image: linear-gradient(
+        -90deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
+      background-size: 400% 100%;
+      animation: skeleton-shimmer 2s linear infinite;
+    }
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

@@ -1,5 +1,6 @@
 <section class="aboutMe__container">
   <div class="bento__grid">
+    @if (!homeQuery.isLoading()) {
     <div
       class="card__grid card__interactive"
       #interactiveCard
@@ -29,6 +30,8 @@
       <h3>{{service.title}}</h3>
       <p>{{service.description}}</p>
     </div>
-    }
+    } } @else { @for (item of [1, 1, 1, 1, 1, 1, 1, 1]; track $index) {
+    <div class="card__grid skeleton__card"></div>
+    } }
   </div>
 </section>
