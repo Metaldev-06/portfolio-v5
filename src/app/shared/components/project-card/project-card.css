@@ -79,11 +79,11 @@
         gap: 0.5rem;
         align-items: center;
         padding: 0.5rem 1rem;
-        /* background-color: var(--slider-input-bg); */
         backdrop-filter: blur(25px) saturate(180%);
         background-color: rgba(17, 25, 40, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.125);
-        color: var(--color-white);
+        color: #ffffff;
+        font-weight: 500;
         border-radius: 8px;
 
         &:nth-child(1) {

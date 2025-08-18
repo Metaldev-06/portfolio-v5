@@ -58,7 +58,7 @@
         padding: 0.5rem 1rem;
         border: none;
         border-radius: 8px;
-        color: var(--color-text-secondary);
+        color: #ffffff;
         cursor: pointer;
         font-weight: bold;
         display: flex;
@@ -68,7 +68,7 @@
       }
 
       .hero__button--primary {
-        background-color: var(--color-complementary);
+        background-color: var(--slider-input-bg);
         outline: 1px solid rgba(255, 255, 255, 0.125);
 
         &:hover {
