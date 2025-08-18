@@ -1,4 +1,14 @@
 {
+  "seo": {
+    "title": {
+      "home": "Portfolio Metaldev - Web Developer",
+      "projects": "Projects - Portfolio MetalDev",
+      "skills": "Skills - Portfolio MetalDev",
+      "education": "Education - Portfolio MetalDev",
+      "contact": "Contact - Portfolio MetalDev"
+    },
+    "description": "I don't perform miracles, I work hard until they happen 😎| My job is to make the outcome identical to what you have in mind ✅."
+  },
   "header": {
     "home": "home",
     "projects": "projects",

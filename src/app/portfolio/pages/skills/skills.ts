@@ -1,8 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+
 import { SkillsData } from './services/skills-data';
 import { SkillData, Type } from './interfaces/skills-data-response';
-
-import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-skills',
@@ -12,6 +14,8 @@ import { TranslocoPipe } from '@jsverse/transloco';
 })
 export default class Skills implements OnInit {
   private readonly _skillsData = inject(SkillsData);
+  private readonly title = inject(Title);
+  private readonly translocoService = inject(TranslocoService);
 
   get skillsData() {
     return this._skillsData.skillsData;
@@ -19,6 +23,12 @@ export default class Skills implements OnInit {
 
   ngOnInit(): void {
     this._skillsData.prefetchSkills(true);
+
+    this.translocoService
+      .selectTranslate('seo.title.skills')
+      .subscribe((title) => {
+        this.title.setTitle(title);
+      });
   }
 
   public groupByType(data: SkillData[] | null | undefined) {
