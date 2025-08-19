@@ -1,7 +1,6 @@
 <section class="educations__container">
   <h1 class="title__section">{{ 'education.title' | transloco }}</h1>
 
-  @if (!educationsData.isLoading()) {
   <article class="educations__content">
     @for (education of educationsData.data()?.data; track education.documentId)
     {
@@ -12,14 +11,4 @@
     </div>
     }
   </article>
-  } @else {
-  <article class="educations__content">
-    @for (item of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track $index) {
-    <div class="skeleton__education">
-      <div class="skeleton-icon"></div>
-      <div class="skeleton-line"></div>
-    </div>
-    }
-  </article>
-  }
 </section>
