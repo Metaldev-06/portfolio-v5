@@ -1,7 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-contact',
@@ -9,15 +8,4 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
-export default class Contact implements OnInit {
-  private readonly title = inject(Title);
-  private readonly translocoService = inject(TranslocoService);
-
-  ngOnInit(): void {
-    this.translocoService
-      .selectTranslate('seo.title.contact')
-      .subscribe((title) => {
-        this.title.setTitle(title);
-      });
-  }
-}
+export default class Contact {}

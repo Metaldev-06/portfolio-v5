@@ -1,11 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { ProjectsData } from './services/projects-data';
 
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 import { AtroposComponent } from '@shared/components/atropos/atropos';
 import { ProjectCard } from '@shared/components/project-card/project-card';
-import { ProjectsData } from './services/projects-data';
 
 @Component({
   selector: 'app-projects',
@@ -15,8 +14,6 @@ import { ProjectsData } from './services/projects-data';
 })
 export default class Projects implements OnInit {
   private readonly _projectsData = inject(ProjectsData);
-  private readonly title = inject(Title);
-  private readonly translocoService = inject(TranslocoService);
 
   public get projectsQuery() {
     return this._projectsData.projectsData;
@@ -24,10 +21,5 @@ export default class Projects implements OnInit {
 
   ngOnInit() {
     this._projectsData.prefetchProjects(true);
-    this.translocoService
-      .selectTranslate('seo.title.projects')
-      .subscribe((title) => {
-        this.title.setTitle(title);
-      });
   }
 }

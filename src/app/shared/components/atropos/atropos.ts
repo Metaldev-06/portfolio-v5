@@ -1,17 +1,11 @@
-import {
-  AfterViewInit,
-  Component,
-  inject,
-  input,
-  OnDestroy,
-  PLATFORM_ID,
-} from '@angular/core';
-import { isPlatformBrowser, NgClass } from '@angular/common';
+import { AfterViewInit, Component, input, OnDestroy } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 import Atropos from 'atropos';
 import 'atropos/css';
 
 import { Project } from '@portfolio/pages/home/interfaces/home-data-response';
+import { ProjectData } from '@portfolio/pages/projects/interfaces/projects-data-response';
 
 @Component({
   selector: 'app-atropos',
@@ -21,21 +15,26 @@ import { Project } from '@portfolio/pages/home/interfaces/home-data-response';
 })
 export class AtroposComponent implements AfterViewInit, OnDestroy {
   public project = input.required<Project>();
-
-  private readonly platformId = inject(PLATFORM_ID);
-
   private myAtropos: ReturnType<typeof Atropos> | null = null;
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.myAtropos = Atropos({
-        el: `.${this.project().documentId}`,
-        activeOffset: 40,
-        rotateXMax: 5,
-        rotateYMax: 5,
-        shadow: false,
-      });
-    }
+    this.myAtropos = Atropos({
+      el: `.${this.project().documentId}`,
+      activeOffset: 40,
+      // shadowScale: 1.05,
+      rotateXMax: 5,
+      rotateYMax: 5,
+      shadow: false,
+      // onEnter() {
+      //   console.log('Enter');
+      // },
+      // onLeave() {
+      //   console.log('Leave');
+      // },
+      // onRotate(x, y) {
+      //   console.log('Rotate', x, y);
+      // },
+    });
   }
 
   ngOnDestroy(): void {

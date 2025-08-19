@@ -1,7 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-
-import { TranslocoService } from '@jsverse/transloco';
 
 import { Hero } from './components/hero/hero';
 import { AboutMe } from './components/about-me/about-me';
@@ -16,16 +13,8 @@ import { HomeData } from './services/home-data';
 })
 export default class Home implements OnInit {
   private readonly _homeData = inject(HomeData);
-  private readonly title = inject(Title);
-  private readonly translocoService = inject(TranslocoService);
 
   ngOnInit(): void {
     this._homeData.prefetchHome(true);
-
-    this.translocoService
-      .selectTranslate('seo.title.home')
-      .subscribe((title) => {
-        this.title.setTitle(title);
-      });
   }
 }

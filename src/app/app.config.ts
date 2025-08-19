@@ -26,10 +26,6 @@ import { provideMarkdown } from 'ngx-markdown';
 import { routes } from './app.routes';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
-import {
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -45,6 +41,7 @@ export const appConfig: ApplicationConfig = {
         preset: Aura,
       },
     }),
+    provideHttpClient(),
     provideTransloco({
       config: {
         availableLangs: ['en', 'es'],
@@ -54,6 +51,5 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader,
     }),
-    provideClientHydration(withEventReplay()),
   ],
 };
