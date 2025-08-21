@@ -24,7 +24,8 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
-              }
+              },
+              "src/assets/robots.txt"
             ],
             "styles": ["src/styles.css"]
           },

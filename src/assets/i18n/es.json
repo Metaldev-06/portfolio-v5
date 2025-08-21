@@ -1,4 +1,30 @@
 {
+  "seo": {
+    "home": {
+      "title": "Portafolio Metaldev - Desarrollador Web",
+      "description": "No hago milagros, trabajo duro hasta que ocurren 😎| Mi trabajo es hacer que el resultado sea idéntico a lo que tienes en la cabeza ✅."
+    },
+    "projects": {
+      "title": "Portafolio Metaldev - Proyectos",
+      "description": "Descubre mis proyectos destacados y cómo he aplicado mis habilidades para crear soluciones efectivas."
+    },
+    "project": {
+      "title": "Portafolio Metaldev - Proyecto",
+      "description": "Detalles sobre el proyecto y mi contribución."
+    },
+    "skills": {
+      "title": "Portafolio Metaldev - Habilidades",
+      "description": "Las habilidades que he adquirido y cómo las aplico en mis proyectos."
+    },
+    "education": {
+      "title": "Portafolio Metaldev - Educación",
+      "description": "Mi trayectoria educativa y cómo ha influido en mi carrera."
+    },
+    "contact": {
+      "title": "Portafolio Metaldev - Contacto",
+      "description": "Información sobre cómo ponerse en contacto conmigo."
+    }
+  },
   "header": {
     "home": "inicio",
     "projects": "proyectos",

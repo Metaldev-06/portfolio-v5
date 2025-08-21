@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Mapa del sitio
+Sitemap: https://metaldev.com.ar/

@@ -1,4 +1,30 @@
 {
+  "seo": {
+    "home": {
+      "title": "Portfolio Metaldev - Web Developer",
+      "description": "I don't perform miracles, I work hard until they happen 😎| My job is to make the outcome identical to what you have in mind ✅."
+    },
+    "projects": {
+      "title": "Portfolio Metaldev - Projects",
+      "description": "Discover my featured projects and how I've applied my skills to create effective solutions."
+    },
+    "project": {
+      "title": "Portfolio Metaldev - Project",
+      "description": "Details about the project and my contribution."
+    },
+    "skills": {
+      "title": "Portfolio Metaldev - Skills",
+      "description": "The skills I've acquired and how I apply them in my projects."
+    },
+    "education": {
+      "title": "Portfolio Metaldev - Education",
+      "description": "My educational background and how it has influenced my career."
+    },
+    "contact": {
+      "title": "Portfolio Metaldev - Contact",
+      "description": "Information on how to get in touch with me."
+    }
+  },
   "header": {
     "home": "home",
     "projects": "projects",
