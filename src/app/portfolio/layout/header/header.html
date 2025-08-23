@@ -82,6 +82,7 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
           (mouseenter)="prefetchHome()"
+          (click)="closeDrawer()"
         >
           {{"header.home"| transloco}}
         </a>
@@ -91,6 +92,7 @@
           [routerLink]="['/projects']"
           routerLinkActive="active"
           (mouseenter)="prefetchProjects()"
+          (click)="closeDrawer()"
         >
           {{"header.projects"| transloco}}
         </a>
@@ -100,6 +102,7 @@
           [routerLink]="['/skills']"
           routerLinkActive="active"
           (mouseenter)="prefetchSkills()"
+          (click)="closeDrawer()"
         >
           {{"header.skills"| transloco}}
         </a>
@@ -109,6 +112,7 @@
           [routerLink]="['/educations']"
           routerLinkActive="active"
           (mouseenter)="prefetchEducations()"
+          (click)="closeDrawer()"
         >
           {{"header.education"| transloco}}
         </a>

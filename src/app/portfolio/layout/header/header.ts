@@ -31,10 +31,6 @@ export class Header {
 
   public visible: boolean = false;
 
-  public toggleLocale() {
-    this._locale.toggleLocale();
-  }
-
   constructor() {
     this.selectLanguage();
 
@@ -45,7 +41,15 @@ export class Header {
     });
   }
 
-  selectLanguage(language: Locale = this._locale.locale()) {
+  public closeDrawer() {
+    this.visible = false;
+  }
+
+  public toggleLocale() {
+    this._locale.toggleLocale();
+  }
+
+  public selectLanguage(language: Locale = this._locale.locale()) {
     if (language === Locale.EN) {
       this._transloco.setActiveLang('en');
     }
