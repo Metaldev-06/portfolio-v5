@@ -76,5 +76,14 @@
         grid-column: span 2;
       }
     }
+
+    @media (width <= 540px) {
+      grid-template-columns: repeat(2, 1fr);
+      margin: 5rem auto;
+
+      .bento__grid .card__grid {
+        grid-column: auto;
+      }
+    }
   }
 }

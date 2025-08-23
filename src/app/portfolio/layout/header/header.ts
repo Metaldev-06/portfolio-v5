@@ -1,6 +1,10 @@
 import { Component, effect, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+
+import { DrawerModule } from 'primeng/drawer';
+
 import { EducationsData } from '@portfolio/pages/educations/services/educations-data';
 import { HomeData } from '@portfolio/pages/home/services/home-data';
 import { Locale } from '@core/enum/locale';
@@ -8,15 +12,10 @@ import { LocaleAplication } from '@core/services/locale';
 import { Logo } from './component/logo/logo';
 import { ProjectsData } from '@portfolio/pages/projects/services/projects-data';
 import { SkillsData } from '@portfolio/pages/skills/services/skills-data';
-import {
-  TranslocoModule,
-  TranslocoPipe,
-  TranslocoService,
-} from '@jsverse/transloco';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, Logo, TranslocoModule],
+  imports: [RouterLink, RouterLinkActive, Logo, TranslocoPipe, DrawerModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -29,6 +28,8 @@ export class Header {
   private readonly _transloco = inject(TranslocoService);
 
   public readonly locale = this._locale.locale;
+
+  public visible: boolean = false;
 
   public toggleLocale() {
     this._locale.toggleLocale();

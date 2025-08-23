@@ -61,5 +61,70 @@
         />
       </button>
     </div>
+
+    <button class="header__menu-toggle" (click)="visible = true">
+      <i class="pi pi-bars"></i>
+    </button>
   </div>
 </header>
+
+<p-drawer
+  [(visible)]="visible"
+  header="Menú"
+  position="right"
+  styleClass="w-10rem"
+>
+  <nav class="header__nav--mobile">
+    <ul>
+      <li>
+        <a
+          [routerLink]="['/']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (mouseenter)="prefetchHome()"
+        >
+          {{"header.home"| transloco}}
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/projects']"
+          routerLinkActive="active"
+          (mouseenter)="prefetchProjects()"
+        >
+          {{"header.projects"| transloco}}
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/skills']"
+          routerLinkActive="active"
+          (mouseenter)="prefetchSkills()"
+        >
+          {{"header.skills"| transloco}}
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/educations']"
+          routerLinkActive="active"
+          (mouseenter)="prefetchEducations()"
+        >
+          {{"header.education"| transloco}}
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="header__cta--mobile">
+    <button (click)="toggleLocale()">
+      <img
+        [src]="localesAssets[locale()].src"
+        [alt]="localesAssets[locale()].alt"
+        width="30"
+        height="30"
+        [title]="localesAssets[locale()].title"
+      />
+    </button>
+  </div>
+</p-drawer>
